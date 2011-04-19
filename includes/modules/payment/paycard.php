@@ -15,8 +15,6 @@
 
       $this->code = 'paycard';
       $this->title = MODULE_PAYMENT_PAYCARD_TEXT_TITLE;
-//      if (IS_ADMIN_FLAG === true && (MODULE_PAYMENT_PAYCARD_PAYTO == 'the Store Owner/Website Name' || MODULE_PAYMENT_PAYCARD_PAYTO == ''))
-//          $this->title .= '<span class="alert"> (not configured - needs pay-to)</span>';
       $this->description = MODULE_PAYMENT_PAYCARD_TEXT_DESCRIPTION;
       $this->sort_order = MODULE_PAYMENT_PAYCARD_SORT_ORDER;
       $this->enabled = ((MODULE_PAYMENT_PAYCARD_STATUS == 'True') ? true : false);
@@ -101,13 +99,6 @@
         foreach ($options as $name => $value) {
             // remove quotation marks
             $value = str_replace('"', '', $value);
-            // check for invalid chars
-//            if (preg_match('/[^a-zA-Z_0-9]/', $name)) {
-//                ipn_debug_email('datacheck - ABORTING - preg_match found invalid submission key: ' . $name . ' (' . $value . ')');
-//                break;
-//            }
-            // do we need special handling for & and = symbols?
-            //if (strpos($value, '&') !== false || strpos($value, '=') !== false) $value = urlencode($value);
             $buttonArray[] = zen_draw_hidden_field($name, $value);
         }
         $process_button_string = implode("\n", $buttonArray) . "\n";
@@ -116,27 +107,11 @@
     }
 
     function before_process() {
-        //zen_redirect(zen_href_link(FILENAME_CHECKOUT_SUCCESS, '', 'SSL'));
         return false;
-//        if (isset($_GET['referer']) && $_GET['referer'] == 'paycard') {
-//            zen_redirect(zen_href_link(FILENAME_CHECKOUT_SUCCESS, '', 'SSL'));
-//        }
-//        else {
-//            zen_redirect(zen_href_link(FILENAME_CHECKOUT_PAYMENT, '', 'SSL'));
-//        }
     }
 
     function after_process() {
         return false;
-//        $_SESSION['order_created'] = '';
-//        global $insert_id, $db, $order;
-//        $sql_data_array= array(
-//            array('fieldName'=>'orders_id', 'value'=>$insert_id, 'type'=>'integer'),
-//            array('fieldName'=>'orders_status_id', 'value'=>$this->order_status, 'type'=>'integer'),
-//            array('fieldName'=>'date_added', 'value'=>'now()', 'type'=>'noquotestring'),
-//            array('fieldName'=>'customer_notified', 'value'=>0, 'type'=>'integer')
-//        );
-//        $db->perform(TABLE_ORDERS_STATUS_HISTORY, $sql_data_array);
     }
 
     function get_error() {
