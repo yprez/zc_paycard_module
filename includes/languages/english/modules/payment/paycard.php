@@ -1,9 +1,12 @@
 <?php
 /*
-  $Id: paycard.php, v0.9 25/02/2011
+  paycard.php, v1.0 20/04/2011
   
   PayCard (Israel) payment module
-  Created By: Yuri Prezument
+  
+  Created by: Yuri Prezument
+		Email:   y@yprez.com
+		Twitter: @yprez
 */
 
   define('MODULE_PAYMENT_PAYCARD_TEXT_TITLE', 'PayCard');
