@@ -11,7 +11,7 @@ This module is free software realased under the terms of the GNU
 General Public License as published by the Free Software Foundation
 
 Installation:
-	1. Upload the includes folder to appropriate directories.
+	1. Upload the includes folder to the appropriate Zen Cart directories.
 	2. Go to Paycard's -> Create a 'payment button' -> Mail link, and copy the numer from "MerchantID=???"
 	3. Go to to your admin panel, install the module, use the merchant id from step 2.
 	
